@@ -1,0 +1,5 @@
+categories = 'https://api.mercadolibre.com/sites/MLB/categories';
+products = 'https://api.mercadolibre.com/sites/MLB/search';
+productBycategory = 'https://api.mercadolibre.com/sites/MLB/search?category=${id}';
+productByQuery = 'https://api.mercadolibre.com/sites/MLB/search?q=$QUERY';
+productByQueryAndCategory = 'https://api.mercadolibre.com/sites/MLB/search?category=$CATEGORY_ID&q=$QUERY';
