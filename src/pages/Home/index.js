@@ -5,7 +5,6 @@ import Categories from './Categories';
 class Home extends Component {
   // constructor() {
   //   super();
-    
   //   this.state = {
   //     products: []
   //   };
@@ -16,7 +15,7 @@ class Home extends Component {
       <div>
         <header>
           <h1>Home</h1>
-          <input></input>
+          <input type="text" />
           <nav>
             <ul>
               <li>Products</li>

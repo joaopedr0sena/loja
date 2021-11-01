@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import React, { Component } from 'react';
-import ListCategories  from './ListCategories';
+import ListCategories from './ListCategories';
 
 class Categories extends Component {
   constructor() {
@@ -7,22 +8,28 @@ class Categories extends Component {
     this.handleChangeReadCategotries = this.handleChangeReadCategotries.bind(this);
 
     this.state = {
-      readCategotries: false
+      readCategotries: false,
     };
   }
 
   handleChangeReadCategotries() {
-    this.setState({ readCategotries: !this.state.readCategotries });
+    const { readCategotries } = this.state;
+    this.setState({ readCategotries: !readCategotries });
   }
-  
+
   render() {
     const { readCategotries } = this.state;
     return (
       <div>
-        <a href="#" onClick={this.handleChangeReadCategotries}>Categories</a>
-        {readCategotries? <ListCategories />: null}
+        <button
+          type="button"
+          onClick={this.handleChangeReadCategotries}
+        >
+          Categories
+        </button>
+        {readCategotries && <ListCategories />}
       </div>
-    )
+    );
   }
 }
 

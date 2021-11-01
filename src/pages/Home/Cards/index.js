@@ -4,14 +4,13 @@ import getProducts from '../../../utils/getProducts';
 class Cards extends Component {
   constructor() {
     super();
-    
     this.state = {
-      products: []
+      products: [],
     };
   }
 
   async componentDidMount() {
-    const products =  await getProducts();
+    const products = await getProducts();
 
     this.setState({ products });
   }
@@ -23,7 +22,7 @@ class Cards extends Component {
         <ul>
           {products.map(({ title, thumbnail, id }) => (
             <li key={id}>
-              <img src={thumbnail} width="100px" alt={title}/>
+              <img src={thumbnail} width="100px" alt={title} />
               <h3>{title}</h3>
             </li>
           ))}
