@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import Home from './pages/Home';
+import Routes from './Routes';
 
-class App extends Component {
+export default class App extends Component {
   render() {
-    return <Home />;
+    return <Routes />;
   }
 }
-
-export default App;

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import ListCategories from './ListCategories';
 
-class Categories extends Component {
+export default class Categories extends Component {
   constructor() {
     super();
     this.handleChangeReadCategotries = this.handleChangeReadCategotries.bind(this);
@@ -32,5 +32,3 @@ class Categories extends Component {
     );
   }
 }
-
-export default Categories;

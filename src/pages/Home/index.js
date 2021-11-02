@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
-import Cards from './Cards';
+import Products from './Products';
 import Categories from './Categories';
 
-class Home extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     products: []
-  //   };
-  // }
-
+export default class Home extends Component {
   render() {
     return (
       <div>
@@ -25,11 +18,9 @@ class Home extends Component {
           </nav>
         </header>
         <main>
-          <Cards />
+          <Products />
         </main>
       </div>
     );
   }
 }
-
-export default Home;

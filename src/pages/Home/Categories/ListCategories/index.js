@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import getCategories from '../../../../utils/getCategories';
 
-class ListCategories extends Component {
+export default class ListCategories extends Component {
   constructor() {
     super();
 
@@ -22,12 +23,12 @@ class ListCategories extends Component {
       <ul>
         {categories.map(({ id, name }) => (
           <li key={id}>
-            <p><a href="/">{name}</a></p>
+            <Link to={`/category/${id}`}>
+              <p>{name}</p>
+            </Link>
           </li>
         ))}
       </ul>
     );
   }
 }
-
-export default ListCategories;
