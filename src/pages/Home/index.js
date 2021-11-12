@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Products from './Products';
+import GenerateProductList from '../../helpers/generateProductList';
 import Categories from './Categories';
 
 export default class Home extends Component {
@@ -18,7 +18,16 @@ export default class Home extends Component {
           </nav>
         </header>
         <main>
-          <Products />
+          <details>
+            <summary>
+              Order by:
+            </summary>
+            <ul>
+              <li>Maior preço</li>
+              <li>Menor preço</li>
+            </ul>
+          </details>
+          <GenerateProductList />
         </main>
       </div>
     );

@@ -1,41 +1,22 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import getProducts from '../../utils/getProducts';
+import GenerateProductList from '../../helpers/generateProductList';
 
 export default class ProductsOfCategory extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.sendProducts = this.sendProducts.bind(this);
-
-    this.state = {
-      products: [],
-    };
-  }
-
-  componentDidMount() {
-    const { id } = this.props.match.params;
-    this.sendProducts(id);
-  }
-
-  async sendProducts(id) {
-    const products = await getProducts(id);
-    this.setState({ products });
-  }
+  //   // this.state = {
+  //   //   idCategory: 0,
+  //   // };
+  // }
 
   render() {
-    const { products } = this.state;
+    const { id } = this.props.match.params;
     return (
       <div>
-        <ul>
-          {products.map(({ title, thumbnail, id }) => (
-            <li key={id}>
-              <img src={thumbnail} width="100px" alt={title} />
-              <h3>{title}</h3>
-            </li>
-          ))}
-        </ul>
+        <GenerateProductList category={id} />
       </div>
     );
   }
