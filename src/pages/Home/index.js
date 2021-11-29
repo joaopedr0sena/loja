@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import GenerateProductList from '../../helpers/generateProductList';
 import Categories from './Categories';
 
@@ -23,8 +24,16 @@ export default class Home extends Component {
               Order by:
             </summary>
             <ul>
-              <li>Maior preço</li>
-              <li>Menor preço</li>
+              <li>
+                <Link to="/orderBy/biggest">
+                  Biggest price
+                </Link>
+              </li>
+              <li>
+                <Link to="/orderBy/lowest">
+                  Lowest price
+                </Link>
+              </li>
             </ul>
           </details>
           <GenerateProductList />
