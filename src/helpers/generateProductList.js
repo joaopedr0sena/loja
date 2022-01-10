@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import getProducts from '../utils/getProducts';
 
 export default class GenerateProductList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       products: [],
@@ -13,9 +13,14 @@ export default class GenerateProductList extends Component {
 
   async componentDidMount() {
     // eslint-disable-next-line react/prop-types
-    const { category } = this.props;
-    const products = await getProducts(category);
-    this.setState({ products });
+    const { category, noId } = this.props;
+    let products = await getProducts(category);
+    if (noId) {
+      products = products.filter((element) => element.id !== noId);
+    }
+    this.setState({
+      products,
+    });
   }
 
   render() {
@@ -29,13 +34,15 @@ export default class GenerateProductList extends Component {
             price,
             id,
           }) => (
-            <Link to={`/description/product/${id}`}>
-              <li key={id}>
+            <li key={id}>
+              <Link
+                to={`/description/product/${id}`}
+              >
                 <img src={thumbnail} width="100px" alt={title} />
                 <h3>{title}</h3>
                 <p>{`R$ ${price}`}</p>
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))}
         </ul>
       </div>

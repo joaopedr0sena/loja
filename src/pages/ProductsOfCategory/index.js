@@ -16,6 +16,7 @@ export default class ProductsOfCategory extends Component {
     const { id } = this.props.match.params;
     return (
       <div>
+        <input type="text" />
         <GenerateProductList category={id} />
       </div>
     );
