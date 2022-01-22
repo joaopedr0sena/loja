@@ -2,14 +2,15 @@
 import React, { Component } from 'react';
 import ListCategories from './ListCategories';
 
+const INITIAL_STATE = {
+  readCategotries: false,
+};
+
 export default class Categories extends Component {
   constructor() {
     super();
+    this.state = INITIAL_STATE;
     this.handleChangeReadCategotries = this.handleChangeReadCategotries.bind(this);
-
-    this.state = {
-      readCategotries: false,
-    };
   }
 
   handleChangeReadCategotries() {
@@ -25,7 +26,7 @@ export default class Categories extends Component {
           type="button"
           onClick={this.handleChangeReadCategotries}
         >
-          Categories
+          categorias
         </button>
         {readCategotries && <ListCategories />}
       </div>

@@ -3,15 +3,8 @@
 import React, { Component } from 'react';
 import GenerateProductList from '../../helpers/generateProductList';
 
-export default class ProductsOfCategory extends Component {
-  // constructor() {
-  //   super();
-
-  //   // this.state = {
-  //   //   idCategory: 0,
-  //   // };
-  // }
-
+// export { default as OrderBy } from './OrderBy';
+export default class Categories extends Component {
   render() {
     const { id } = this.props.match.params;
     return (

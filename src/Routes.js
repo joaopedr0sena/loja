@@ -8,8 +8,8 @@ export default class Routes extends Component {
     return (
       <Switch>
         <Route path="/description/product/:id" component={Pages.Description} />
-        <Route path="/category/:id" component={Pages.ProductsOfCategory} />
-        {/* <Route path="/orderBy/:order" component={Pages.OrderBy} /> */}
+        <Route path="/shoppingCart" component={Pages.ShoppingCart} />
+        <Route path="/category/:id" component={Pages.Categories} />
         <Route path="/" component={Pages.Home} />
       </Switch>
     );

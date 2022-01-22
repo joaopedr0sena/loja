@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import getCategories from '../../../../utils/getCategories';
 
+const INITIAL_STATE = {
+  categories: [],
+};
+
 export default class ListCategories extends Component {
   constructor() {
     super();
-
-    this.state = {
-      categories: [],
-    };
+    this.state = INITIAL_STATE;
   }
 
   async componentDidMount() {

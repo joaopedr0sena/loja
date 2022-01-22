@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import GenerateProductList from '../../helpers/generateProductList';
 import Categories from './Categories';
+import SearchBar from '../../components/SearchBar';
+import GenerateProductList from '../../helpers/generateProductList';
 
 export default class Home extends Component {
   render() {
@@ -9,33 +9,16 @@ export default class Home extends Component {
       <div>
         <header>
           <h1>Home</h1>
-          <input type="text" />
+          <SearchBar />
           <nav>
             <ul>
-              <li>Products</li>
+              <li>produtos</li>
               <li><Categories /></li>
-              <li>About</li>
+              <li>sobre</li>
             </ul>
           </nav>
         </header>
         <main>
-          <details>
-            <summary>
-              Order by:
-            </summary>
-            <ul>
-              <li>
-                <Link to="/orderBy/biggest">
-                  Biggest price
-                </Link>
-              </li>
-              <li>
-                <Link to="/orderBy/lowest">
-                  Lowest price
-                </Link>
-              </li>
-            </ul>
-          </details>
           <GenerateProductList />
         </main>
       </div>
