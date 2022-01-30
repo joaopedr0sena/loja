@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import SearchBar from '../../components/SearchBar';
-import getDescription from '../../utils/getDescription';
-import getInformation from '../../utils/getInformation';
-import getSpecificCategory from '../../utils/getSpecificCategory';
+import getDescription from '../../utils/apis/getDescription';
+import getInformation from '../../utils/apis/getInformation';
+import getSpecificCategory from '../../utils/apis/getSpecificCategory';
 import AddToCart from '../../components/AddToCart';
 import GenerateProductList from '../../helpers/generateProductList';
 

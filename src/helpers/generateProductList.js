@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import getProducts from '../utils/getProducts';
+import getProducts from '../utils/apis/getProducts';
 import AddToCart from '../components/AddToCart';
 
 const INITIAL_STATE = {

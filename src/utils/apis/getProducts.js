@@ -1,4 +1,4 @@
-import getAPI from '../helpers/getAPI';
+import getAPI from '../../helpers/getAPI';
 
 const getProducts = async (categoryId = false, query = false) => {
   let URL = '';

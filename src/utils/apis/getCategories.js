@@ -1,4 +1,4 @@
-import getAPI from '../helpers/getAPI';
+import getAPI from '../../helpers/getAPI';
 
 const getCategories = async () => {
   const URL = 'https://api.mercadolibre.com/sites/MLB/categories';

@@ -1,4 +1,4 @@
-import getAPI from '../helpers/getAPI';
+import getAPI from '../../helpers/getAPI';
 
 const getInformation = async (item) => {
   const URL = `https://api.mercadolibre.com/items/${item}`;

@@ -10,9 +10,9 @@ class AddToCart extends Component {
 
   consolelog() {
     // eslint-disable-next-line react/prop-types
-    const { itemId, idList } = this.props;
+    const { itemId, shoppingCartList } = this.props;
     // eslint-disable-next-line no-console
-    console.log(itemId, idList);
+    console.log(itemId, shoppingCartList);
   }
 
   render() {
@@ -32,7 +32,7 @@ class AddToCart extends Component {
 }
 
 const mapStateToProps = ({ shoppingCartState }) => ({
-  idList: shoppingCartState.idList,
+  shoppingCartList: shoppingCartState.shoppingCartList,
 });
 
 const mapDispatchToProps = (dispatch) => ({

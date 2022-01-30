@@ -1,4 +1,4 @@
-import getAPI from '../helpers/getAPI';
+import getAPI from '../../helpers/getAPI';
 
 const getSpecificCategory = async (category) => {
   const URL = `https://api.mercadolibre.com/categories/${category}`;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import getCategories from '../../../../utils/getCategories';
+import getCategories from '../../../../utils/apis/getCategories';
 
 const INITIAL_STATE = {
   categories: [],
