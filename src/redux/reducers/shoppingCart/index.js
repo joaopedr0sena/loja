@@ -1,8 +1,10 @@
 import { ADD_TO_CART } from './actions/addToCart';
+import { ALL_INFORMATION } from './actions/allInformation';
 
 const cartListSaved = JSON.parse(localStorage.getItem('cart'));
 const INITIAL_STATE = {
   shoppingCartList: !cartListSaved ? [] : cartListSaved,
+  shoppingCartListInformations: [],
 };
 
 const setStorage = (key, value) => {
@@ -33,7 +35,15 @@ const addItem = (id, list) => {
 const shoppingCartState = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      return { ...state, shoppingCartList: addItem(action.id, state.shoppingCartList) };
+      return {
+        ...state,
+        shoppingCartList: addItem(action.payload, state.shoppingCartList),
+      };
+    case ALL_INFORMATION:
+      return {
+        ...state,
+        shoppingCartListInformations: action.payload,
+      };
     default:
       return state;
   }

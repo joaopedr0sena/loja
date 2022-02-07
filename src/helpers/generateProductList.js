@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import getProducts from '../utils/apis/getProducts';
@@ -16,15 +17,12 @@ export default class GenerateProductList extends Component {
   }
 
   async componentDidMount() {
-    // eslint-disable-next-line react/prop-types
     const { category, noId } = this.props;
     this.getProductsList(category, noId);
   }
 
   async componentDidUpdate(prevProps) {
-    // eslint-disable-next-line react/prop-types
     const { category, noId } = this.props;
-    // eslint-disable-next-line react/prop-types
     const { noId: prevNoId, category: prevCategory } = prevProps;
     if (noId !== prevNoId || category !== prevCategory) {
       this.getProductsList(category, noId);

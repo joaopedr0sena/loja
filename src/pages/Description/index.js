@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import SearchBar from '../../components/SearchBar';
-import getDescription from '../../utils/apis/getDescription';
-import getInformation from '../../utils/apis/getInformation';
-import getSpecificCategory from '../../utils/apis/getSpecificCategory';
 import AddToCart from '../../components/AddToCart';
+import getDescription from '../../utils/apis/getDescription';
 import GenerateProductList from '../../helpers/generateProductList';
+import getSpecificCategory from '../../utils/apis/getSpecificCategory';
 
 const INITIAL_STATE = {
   loading: true,
@@ -36,10 +35,9 @@ export default class Description extends Component {
 
   async getInfos(id) {
     this.setState({ ...INITIAL_STATE });
-    const description = await getDescription(id);
-    const information = await getInformation(id);
+    const { description, information } = await getDescription(id);
     const { category_id: categoryId } = information;
-    const category = await getSpecificCategory(categoryId);
+    const category = getSpecificCategory(categoryId);
     this.setState({
       category,
       description,
