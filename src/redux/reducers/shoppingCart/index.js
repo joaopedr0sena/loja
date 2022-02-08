@@ -1,5 +1,6 @@
 import { ADD_TO_CART } from './actions/addToCart';
 import { ALL_INFORMATION } from './actions/allInformation';
+import { CHANGE_MOUNT } from './actions/changeMount';
 
 const cartListSaved = JSON.parse(localStorage.getItem('cart'));
 const INITIAL_STATE = {
@@ -9,6 +10,18 @@ const INITIAL_STATE = {
 
 const setStorage = (key, value) => {
   localStorage.setItem(`${key}`, JSON.stringify(value));
+};
+
+const handdleChangeMount = (id, mount, list) => {
+  const listNewMount = list.map((element) => {
+    const item = element;
+    if (item.itemId === id) {
+      item.mount = mount;
+    }
+    return item;
+  });
+  setStorage('cart', list);
+  return listNewMount;
 };
 
 const addItem = (id, list) => {
@@ -37,12 +50,17 @@ const shoppingCartState = (state = INITIAL_STATE, action) => {
     case ADD_TO_CART:
       return {
         ...state,
-        shoppingCartList: addItem(action.payload, state.shoppingCartList),
+        shoppingCartList: addItem(action.id, state.shoppingCartList),
       };
     case ALL_INFORMATION:
       return {
         ...state,
         shoppingCartListInformations: action.payload,
+      };
+    case CHANGE_MOUNT:
+      return {
+        ...state,
+        shoppingCartList: handdleChangeMount(action.id, action.mount, state.shoppingCartList),
       };
     default:
       return state;

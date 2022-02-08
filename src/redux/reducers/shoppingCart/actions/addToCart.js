@@ -1,5 +1,5 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 
-const addToCart = (payload) => ({ type: ADD_TO_CART, payload });
+const addToCart = (id) => ({ type: ADD_TO_CART, id });
 
 export default addToCart;

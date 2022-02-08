@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import GenerateProductList from '../../helpers/generateProductList';
 
-// export { default as OrderBy } from './OrderBy';
 export default class Categories extends Component {
   render() {
-    const { id } = this.props.match.params;
+    const { match } = this.props;
+    const { id, name } = match.params;
     return (
       <div>
+        <h1>{name}</h1>
         <input type="text" />
         <GenerateProductList category={id} />
       </div>
