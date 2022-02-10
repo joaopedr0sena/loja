@@ -1,6 +1,7 @@
 import { ADD_TO_CART } from './actions/addToCart';
 import { ALL_INFORMATION } from './actions/allInformation';
 import { CHANGE_MOUNT } from './actions/changeMount';
+import { CART_REMOVER } from './actions/cartRemover';
 
 const cartListSaved = JSON.parse(localStorage.getItem('cart'));
 const INITIAL_STATE = {
@@ -27,9 +28,9 @@ const handdleChangeMount = (id, mount, list) => {
 const addItem = (id, list) => {
   let inList = false;
   if (id) {
-    list.map((item) => {
+    list.map((element) => {
+      const item = element;
       if (item.itemId === id) {
-        // eslint-disable-next-line no-param-reassign
         item.mount += 1;
         inList = true;
       }
@@ -45,12 +46,36 @@ const addItem = (id, list) => {
   return list;
 };
 
+const removeItem = (id, list) => {
+  const editedList = [];
+  list.map((item) => {
+    if (item.itemId !== id) {
+      editedList.push(item);
+    }
+    return item;
+  });
+  setStorage('cart', editedList);
+  return editedList;
+};
+
 const shoppingCartState = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
         ...state,
         shoppingCartList: addItem(action.id, state.shoppingCartList),
+      };
+    case CART_REMOVER:
+      return {
+        ...state,
+        shoppingCartList: removeItem(
+          action.id,
+          state.shoppingCartList,
+        ),
+        shoppingCartListInformations: removeItem(
+          action.id,
+          state.shoppingCartListInformations,
+        ),
       };
     case ALL_INFORMATION:
       return {
@@ -60,7 +85,11 @@ const shoppingCartState = (state = INITIAL_STATE, action) => {
     case CHANGE_MOUNT:
       return {
         ...state,
-        shoppingCartList: handdleChangeMount(action.id, action.mount, state.shoppingCartList),
+        shoppingCartList: handdleChangeMount(
+          action.id,
+          action.mount,
+          state.shoppingCartList,
+        ),
       };
     default:
       return state;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import changeMount from '../../../redux/reducers/shoppingCart/actions/changeMount';
 
 const INITIAL_STATE = {
-  mount: 0,
+  mount: 1,
 };
 
 class InputMount extends Component {
@@ -30,8 +30,10 @@ class InputMount extends Component {
   handleChangeMountLess() {
     const { mount } = this.state;
     const { itemId, handleItme } = this.props;
-    this.setState({ mount: mount - 1 });
-    handleItme(itemId, mount - 1);
+    if (mount > 1) {
+      this.setState({ mount: mount - 1 });
+      handleItme(itemId, mount - 1);
+    }
   }
 
   render() {

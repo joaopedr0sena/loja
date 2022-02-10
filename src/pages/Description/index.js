@@ -60,8 +60,8 @@ export default class Description extends Component {
     }
     return (
       <div>
-        <SearchBar />
         <h2>{information.title}</h2>
+        <SearchBar />
         {information.pictures.map(({
           secure_url: secureUrl,
           id: pictureId,

@@ -7,9 +7,9 @@ export default class Routes extends Component {
   render() {
     return (
       <Switch>
+        <Route path="/category/:id/categoryName/:name" component={Pages.Categories} />
         <Route path="/description/product/:id" component={Pages.Description} />
         <Route path="/shoppingCart" component={Pages.ShoppingCart} />
-        <Route path="/category/:id/categoryName/:name" component={Pages.Categories} />
         <Route path="/" component={Pages.Home} />
       </Switch>
     );
