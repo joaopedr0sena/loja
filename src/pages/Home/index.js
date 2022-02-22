@@ -1,10 +1,19 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Categories from './Categories';
+import { connect } from 'react-redux';
 import SearchBar from '../../components/SearchBar';
+import Categories from './Categories';
+import shoppingCartThunk from '../../redux/thunk/shoppingCart';
 import GenerateProductList from '../../helpers/generateProductList';
 
-export default class Home extends Component {
+class Home extends Component {
+  componentDidMount() {
+    const cartListSaved = JSON.parse(localStorage.getItem('cart'));
+    const { getInformationsAll } = this.props;
+    getInformationsAll(cartListSaved);
+  }
+
   render() {
     return (
       <div>
@@ -31,3 +40,9 @@ export default class Home extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  getInformationsAll: (cart) => dispatch(shoppingCartThunk.getInformationsAll(cart)),
+});
+
+export default connect(null, mapDispatchToProps)(Home);

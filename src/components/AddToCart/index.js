@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import addToCart from '../../redux/reducers/shoppingCart/actions/addToCart';
 import cartRemover from '../../redux/reducers/shoppingCart/actions/cartRemover';
+import cartInfosRemover from '../../redux/reducers/shoppingCart/actions/cartInfosRemover';
 
 const INITIAL_STATE = {
-  message: 'add',
+  message: 'adicionar ao carrinho',
   inCart: false,
 };
 
@@ -18,11 +19,10 @@ class AddToCart extends Component {
 
   componentDidMount() {
     const { shoppingCartList, itemId } = this.props;
-
     shoppingCartList.map((item) => {
       if (itemId === item.itemId) {
         this.setState({
-          message: 'remove',
+          message: 'remover do carrinho',
           inCart: true,
         });
       }
@@ -31,15 +31,21 @@ class AddToCart extends Component {
   }
 
   handleChange() {
-    const { handleAddItem, handleRemoveItem, itemId } = this.props;
+    const {
+      handleAddItem,
+      handleRemoveItem,
+      handleRemoveItemListInfo,
+      itemId,
+    } = this.props;
     const { inCart } = this.state;
     let message = '';
     if (inCart) {
       handleRemoveItem(itemId);
-      message = 'add';
+      handleRemoveItemListInfo(itemId);
+      message = 'adicionar ao carrinho';
     } else {
       handleAddItem(itemId);
-      message = 'remove';
+      message = 'remover do carrinho';
     }
     this.setState({
       inCart: !inCart,
@@ -69,6 +75,7 @@ const mapStateToProps = ({ shoppingCartState }) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleAddItem: (id) => (dispatch(addToCart(id))),
   handleRemoveItem: (id) => (dispatch(cartRemover(id))),
+  handleRemoveItemListInfo: (id) => (dispatch(cartInfosRemover(id))),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddToCart);

@@ -1,7 +1,9 @@
-import { ADD_TO_CART } from './actions/addToCart';
+import { CART_INFOS_REMOVER } from './actions/cartInfosRemover';
 import { ALL_INFORMATION } from './actions/allInformation';
-import { CHANGE_MOUNT } from './actions/changeMount';
+import { CHANGE_AMOUNT } from './actions/changeAmount';
 import { CART_REMOVER } from './actions/cartRemover';
+import { ADD_TO_CART } from './actions/addToCart';
+import shoppingCartThunk from '../../thunk/shoppingCart';
 
 const cartListSaved = JSON.parse(localStorage.getItem('cart'));
 const INITIAL_STATE = {
@@ -13,40 +15,32 @@ const setStorage = (key, value) => {
   localStorage.setItem(`${key}`, JSON.stringify(value));
 };
 
-const handdleChangeMount = (id, mount, list) => {
-  const listNewMount = list.map((element) => {
-    const item = element;
-    if (item.itemId === id) {
-      item.mount = mount;
-    }
-    return item;
-  });
-  setStorage('cart', list);
-  return listNewMount;
-};
-
-const addItem = (id, list) => {
-  let inList = false;
-  if (id) {
-    list.map((element) => {
+const handdleChangeAmount = (id, amount, list) => {
+  if (list) {
+    const listNewAmount = list.map((element) => {
       const item = element;
       if (item.itemId === id) {
-        item.mount += 1;
-        inList = true;
+        item.amount = amount;
       }
-      setStorage('cart', list);
-      return list;
+      return item;
     });
-    if (!inList) {
-      list.push({ itemId: id, mount: 1 });
-      setStorage('cart', list);
-      return list;
-    }
+    setStorage('cart', listNewAmount);
+    return listNewAmount;
   }
   return list;
 };
 
-const removeItem = (id, list) => {
+const addItem = (id, list = []) => {
+  const editedList = list;
+  if (id) {
+    editedList.push({ itemId: id, amount: 1 });
+    setStorage('cart', editedList);
+    return editedList;
+  }
+  return editedList;
+};
+
+const removeItem = (id, list, set = false) => {
   const editedList = [];
   list.map((item) => {
     if (item.itemId !== id) {
@@ -54,27 +48,42 @@ const removeItem = (id, list) => {
     }
     return item;
   });
-  setStorage('cart', editedList);
+  if (set) {
+    setStorage('cart', editedList);
+  }
+  if (!editedList) {
+    return [];
+  }
   return editedList;
 };
 
 const shoppingCartState = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
+      shoppingCartThunk.getInformationsAll(cartListSaved);
       return {
         ...state,
         shoppingCartList: addItem(action.id, state.shoppingCartList),
       };
     case CART_REMOVER:
+      shoppingCartThunk.getInformationsAll(cartListSaved);
       return {
         ...state,
         shoppingCartList: removeItem(
           action.id,
           state.shoppingCartList,
+          true,
         ),
+
+      };
+    case CART_INFOS_REMOVER:
+      shoppingCartThunk.getInformationsAll(cartListSaved);
+      return {
+        ...state,
         shoppingCartListInformations: removeItem(
           action.id,
           state.shoppingCartListInformations,
+          false,
         ),
       };
     case ALL_INFORMATION:
@@ -82,12 +91,12 @@ const shoppingCartState = (state = INITIAL_STATE, action) => {
         ...state,
         shoppingCartListInformations: action.payload,
       };
-    case CHANGE_MOUNT:
+    case CHANGE_AMOUNT:
       return {
         ...state,
-        shoppingCartList: handdleChangeMount(
+        shoppingCartList: handdleChangeAmount(
           action.id,
-          action.mount,
+          action.amount,
           state.shoppingCartList,
         ),
       };

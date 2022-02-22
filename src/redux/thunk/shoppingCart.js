@@ -3,9 +3,9 @@ import allInformation from '../reducers/shoppingCart/actions/allInformation';
 
 const getInformationsList = async (list) => {
   const listWithInformation = await Promise.all(
-    list.map(async ({ itemId, mount }) => ({
+    list.map(async ({ itemId, amount }) => ({
       itemId,
-      mount,
+      amount,
       infos: await getInformations(itemId),
     })),
   );

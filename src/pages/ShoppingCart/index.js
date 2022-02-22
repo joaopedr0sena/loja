@@ -2,10 +2,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import shoppingCartThunk from '../../redux/thunk/shoppingCart';
+import Amount from '../../components/Amount';
 import SearchBar from '../../components/SearchBar';
-import InputMount from './InputMount';
 import AddToCart from '../../components/AddToCart';
+import shoppingCartThunk from '../../redux/thunk/shoppingCart';
 
 class ShoppingCart extends Component {
   constructor() {
@@ -17,8 +17,8 @@ class ShoppingCart extends Component {
   componentDidMount() {
     const cartListSaved = JSON.parse(localStorage.getItem('cart'));
     const {
-      getInformationsAll,
       shoppingCartListInformations,
+      getInformationsAll,
     } = this.props;
     getInformationsAll(cartListSaved);
     this.setState({
@@ -31,10 +31,9 @@ class ShoppingCart extends Component {
   }
 
   upDateStateByProps(prevProps) {
-    const { props } = this;
     const {
       shoppingCartListInformations,
-    } = props;
+    } = this.props;
     try {
       if (prevProps.shoppingCartListInformations !== shoppingCartListInformations) {
         this.setState({
@@ -47,6 +46,7 @@ class ShoppingCart extends Component {
   }
 
   render() {
+    const { shoppingCartListInformations } = this.props;
     const { cartList } = this.state;
     return (
       <div>
@@ -54,7 +54,7 @@ class ShoppingCart extends Component {
         <SearchBar />
         <ul>
           {
-            cartList && cartList.map(({ itemId, mount, infos }) => {
+            shoppingCartListInformations && cartList.map(({ itemId, amount, infos }) => {
               const { thumbnail, title, price } = infos.information;
               return (
                 <li key={itemId}>
@@ -63,7 +63,7 @@ class ShoppingCart extends Component {
                     <h1>{title}</h1>
                     <p>{`R$ ${price}`}</p>
                   </Link>
-                  <InputMount mount={mount} itemId={itemId} />
+                  <Amount amount={amount} itemId={itemId} />
                   <AddToCart itemId={itemId} />
                 </li>
               );
