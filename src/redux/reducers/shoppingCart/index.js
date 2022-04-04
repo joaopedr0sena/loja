@@ -35,6 +35,7 @@ const addItem = (id, list = []) => {
   if (id) {
     editedList.push({ itemId: id, amount: 1 });
     setStorage('cart', editedList);
+    shoppingCartThunk.getInformationsAll(cartListSaved);
     return editedList;
   }
   return editedList;
@@ -60,13 +61,11 @@ const removeItem = (id, list, set = false) => {
 const shoppingCartState = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      shoppingCartThunk.getInformationsAll(cartListSaved);
       return {
         ...state,
         shoppingCartList: addItem(action.id, state.shoppingCartList),
       };
     case CART_REMOVER:
-      shoppingCartThunk.getInformationsAll(cartListSaved);
       return {
         ...state,
         shoppingCartList: removeItem(
@@ -89,7 +88,7 @@ const shoppingCartState = (state = INITIAL_STATE, action) => {
     case ALL_INFORMATION:
       return {
         ...state,
-        shoppingCartListInformations: action.payload,
+        shoppingCartListInformations: action.list,
       };
     case CHANGE_AMOUNT:
       return {
@@ -98,6 +97,11 @@ const shoppingCartState = (state = INITIAL_STATE, action) => {
           action.id,
           action.amount,
           state.shoppingCartList,
+        ),
+        shoppingCartListInformations: handdleChangeAmount(
+          action.id,
+          action.amount,
+          state.shoppingCartListInformations,
         ),
       };
     default:

@@ -1,57 +1,38 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import changeAmount from '../../redux/reducers/shoppingCart/actions/changeAmount';
 
-const INITIAL_STATE = { amount: 1 };
+export default function Amount(props) {
+  const { itemId } = props;
+  const [amount, setAmount] = useState(1);
+  const dispatch = useDispatch();
 
-class Amount extends Component {
-  constructor() {
-    super();
-    this.state = INITIAL_STATE;
-    this.handleChangeAmountAdd = this.handleChangeAmountAdd.bind(this);
-    this.handleChangeAmountLess = this.handleChangeAmountLess.bind(this);
+  useEffect(() => {
+    function amountSaved() {
+      setAmount(props.amount);
+    }
+    amountSaved();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleChangeAmountAdd() {
+    setAmount(amount + 1);
+    dispatch(changeAmount(itemId, amount + 1));
   }
 
-  componentDidMount() {
-    const { amount } = this.props;
-    this.setState({ amount });
-  }
-
-  handleChangeAmountAdd() {
-    const { amount } = this.state;
-    const { handleItme, itemId } = this.props;
-    this.setState({ amount: amount + 1 });
-    handleItme(itemId, amount + 1);
-  }
-
-  handleChangeAmountLess() {
-    const { amount } = this.state;
-    const { handleItme, itemId } = this.props;
+  function handleChangeAmountLess() {
     if (amount > 1) {
-      handleItme(itemId, amount - 1);
-      this.setState({ amount: amount - 1 });
+      dispatch(changeAmount(itemId, amount - 1));
+      setAmount(amount - 1);
     }
   }
 
-  render() {
-    const { amount } = this.state;
-    return (
-      <div>
-        <button type="button" onClick={this.handleChangeAmountLess}>-</button>
-        <p>{amount}</p>
-        <button type="button" onClick={this.handleChangeAmountAdd}>+</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button type="button" onClick={handleChangeAmountLess}>-</button>
+      <p>{amount}</p>
+      <button type="button" onClick={handleChangeAmountAdd}>+</button>
+    </div>
+  );
 }
-
-const mapStateToProps = ({ shoppingCartState }) => ({
-  shoppingCartList: shoppingCartState.shoppingCartList,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  handleItme: (itemId, amount) => dispatch(changeAmount(itemId, amount)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Amount);

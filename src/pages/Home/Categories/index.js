@@ -1,34 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ListCategories from './ListCategories';
 
-const INITIAL_STATE = {
-  readCategotries: false,
-};
+export default function Categories() {
+  const [readCategotries, setEeadCategotries] = useState(false);
 
-export default class Categories extends Component {
-  constructor() {
-    super();
-    this.state = INITIAL_STATE;
-    this.handleChangeReadCategotries = this.handleChangeReadCategotries.bind(this);
+  function handleChangeReadCategotries() {
+    setEeadCategotries(!readCategotries);
   }
 
-  handleChangeReadCategotries() {
-    const { readCategotries } = this.state;
-    this.setState({ readCategotries: !readCategotries });
-  }
-
-  render() {
-    const { readCategotries } = this.state;
-    return (
-      <div>
-        <button
-          type="button"
-          onClick={this.handleChangeReadCategotries}
-        >
-          categorias
-        </button>
-        {readCategotries && <ListCategories />}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={handleChangeReadCategotries}
+      >
+        categorias
+      </button>
+      {readCategotries && <ListCategories />}
+    </div>
+  );
 }

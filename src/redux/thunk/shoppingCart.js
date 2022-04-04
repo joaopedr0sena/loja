@@ -1,7 +1,9 @@
 import getInformations from '../../utils/apis/getDescription';
 import allInformation from '../reducers/shoppingCart/actions/allInformation';
 
-const getInformationsList = async (list) => {
+const cartListSaved = JSON.parse(localStorage.getItem('cart'));
+
+const getInformationsList = async (list = cartListSaved) => {
   const listWithInformation = await Promise.all(
     list.map(async ({ itemId, amount }) => ({
       itemId,
@@ -13,8 +15,8 @@ const getInformationsList = async (list) => {
 };
 
 const shoppingCartThunk = {
-  getInformationsAll: (cart) => async (dispatch) => {
-    const informations = await getInformationsList(cart);
+  getInformationsAll: (cartList) => async (dispatch) => {
+    const informations = await getInformationsList(cartList);
     dispatch(allInformation(informations));
   },
 };
