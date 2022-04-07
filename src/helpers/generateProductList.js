@@ -7,7 +7,7 @@ import AddToCart from '../components/AddToCart';
 export default function GenerateProductList(props) {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
-  const { category, noId } = props;
+  const { category, noId, list } = props;
 
   useEffect(() => {
     async function getProductsList() {
@@ -18,9 +18,13 @@ export default function GenerateProductList(props) {
       setProducts(newProducts);
       setLoading(false);
     }
-    getProductsList();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (list) {
+      setProducts(list);
+      setLoading(false);
+    } else {
+      getProductsList();
+    }
+  }, [list, category, noId]);
 
   if (loading) {
     return (

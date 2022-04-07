@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import SearchBar from '../../components/SearchBar';
 import AddToCart from '../../components/AddToCart';
