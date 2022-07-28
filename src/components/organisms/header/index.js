@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../../atoms/search-bar';
 import ListCategories from '../../molecules/list-categories';
 
-export default function Header() {
+export default function Header({ title = 'Loja' }) {
   return (
     <header>
-      <h1>Home</h1>
+      <h1>{title}</h1>
       <SearchBar />
       <nav>
         <ul>

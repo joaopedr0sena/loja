@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import SearchBar from '../../components/atoms/search-bar';
 import getDescription from '../../utils/apis/getDescription';
 import GenerateProductList from '../../helpers/generateProductList';
 import getSpecificCategory from '../../utils/apis/getSpecificCategory';
 import ButtonAddCart from '../../components/atoms/button-add-cart';
+import Header from '../../components/organisms/header';
 
 const INITIAL_STATE = {
   loading: true,
@@ -48,8 +48,7 @@ export default function Description(props) {
   const { plain_text: plainText } = description;
   return (
     <div>
-      <h2>{information.title}</h2>
-      <SearchBar />
+      <Header title={information.title} />
       {information.pictures.map(({
         secure_url: secureUrl,
         id: pictureId,

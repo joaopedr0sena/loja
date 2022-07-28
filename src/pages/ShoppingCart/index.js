@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Amount from '../../components/molecules/amount';
-import SearchBar from '../../components/atoms/search-bar';
+import Header from '../../components/organisms/header';
 import ButtonAddCart from '../../components/atoms/button-add-cart';
 import shoppingCartThunk from '../../redux/thunk/shoppingCart';
 
@@ -28,8 +28,7 @@ export default function ShoppingCart() {
 
   return (
     <>
-      <h1>Carrinho de compras</h1>
-      <SearchBar />
+      <Header title="Carrinho de compras" />
       <ul>
         {
           cartList && listInformations.map(({ itemId, amount, infos }) => {

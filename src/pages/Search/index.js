@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getProducts from '../../utils/apis/getProducts';
-import SearchBar from '../../components/atoms/search-bar';
+import Header from '../../components/organisms/header';
 import GenerateProductList from '../../helpers/generateProductList';
 
 export default function Search(props) {
@@ -17,7 +17,7 @@ export default function Search(props) {
 
   return (
     <div>
-      <SearchBar item={match.params.searchItem} />
+      <Header />
       {products && <GenerateProductList list={products} />}
     </div>
   );
