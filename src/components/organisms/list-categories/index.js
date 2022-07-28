@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import getCategories from '../../../utils/apis/getCategories';
+import CategoriesItem from '../../molecules/categories-item';
 
 export default function ListCategories() {
   const [categories, setCategories] = useState([]);
@@ -16,13 +16,7 @@ export default function ListCategories() {
   if (!categories) return (<p>...</p>);
   return (
     <ul>
-      {categories.map(({ id, name }) => (
-        <li key={id}>
-          <Link to={`/category/${id}/categoryName/${name}`}>
-            <p>{name}</p>
-          </Link>
-        </li>
-      ))}
+      {categories.map(({ id, name }) => <CategoriesItem id={id} name={name} />)}
     </ul>
   );
 }
