@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../../components/atoms/search-bar';
-import Categories from './Categories';
 import GenerateProductList from '../../helpers/generateProductList';
+import ListCategories from '../../components/organisms/list-categories';
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
               </Link>
             </li>
             <li>produtos</li>
-            <li><Categories /></li>
+            <li><ListCategories /></li>
             <li>sobre</li>
           </ul>
         </nav>

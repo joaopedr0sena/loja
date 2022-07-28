@@ -4,6 +4,11 @@ import CategoriesItem from '../../molecules/categories-item';
 
 export default function ListCategories() {
   const [categories, setCategories] = useState([]);
+  const [readCategotries, setEeadCategotries] = useState(false);
+
+  function handleChangeReadCategotries() {
+    setEeadCategotries(!readCategotries);
+  }
 
   useEffect(() => {
     const getApi = async () => {
@@ -13,10 +18,21 @@ export default function ListCategories() {
     getApi();
   }, []);
 
-  if (!categories) return (<p>...</p>);
   return (
-    <ul>
-      {categories.map(({ id, name }) => <CategoriesItem id={id} name={name} />)}
-    </ul>
+    <div>
+      <button
+        type="button"
+        onClick={handleChangeReadCategotries}
+      >
+        categorias
+      </button>
+      <ul>
+        {
+          readCategotries && categories.map(({ id, name }) => (
+            <CategoriesItem key={id} id={id} name={name} />
+          ))
+        }
+      </ul>
+    </div>
   );
 }
