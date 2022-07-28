@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ListCategories from '../../../components/molecules/list-categories';
+import ListCategories from '../../../components/organisms/list-categories';
 
 export default function Categories() {
   const [readCategotries, setEeadCategotries] = useState(false);

@@ -4,19 +4,16 @@ import getCategories from '../../../utils/apis/getCategories';
 
 export default function ListCategories() {
   const [categories, setCategories] = useState([]);
+
   useEffect(() => {
-    const category = async () => {
+    const getApi = async () => {
       const newCategories = await getCategories();
       setCategories(newCategories);
     };
-    category();
+    getApi();
   }, []);
 
-  if (!categories) {
-    return (
-      <p>...</p>
-    );
-  }
+  if (!categories) return (<p>...</p>);
   return (
     <ul>
       {categories.map(({ id, name }) => (
