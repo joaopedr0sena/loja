@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import getCategories from '../../../../utils/apis/getCategories';
+import getCategories from '../../../utils/apis/getCategories';
 
 export default function ListCategories() {
   const [categories, setCategories] = useState([]);
