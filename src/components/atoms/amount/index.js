@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import changeAmount from '../../redux/reducers/shoppingCart/actions/changeAmount';
+import changeAmount from '../../../redux/reducers/shoppingCart/actions/changeAmount';
 
 export default function Amount(props) {
   const { itemId } = props;
