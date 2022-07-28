@@ -1,34 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-export default function SearchBar(props) {
+export default function SearchBar() {
+  const history = useHistory();
   const [valueState, setValueState] = useState('');
   const [searchState, setSearchState] = useState(false);
 
-  function handleChange({ target: { value } }) {
+  const handleChange = ({ target: { value } }) => {
     setValueState(value);
-  }
+  };
 
-  function checkInpunt(value) {
-    if (value === '') {
-      return setSearchState(false);
-    }
+  const checkInpunt = (value) => {
+    if (value === '') return setSearchState(false);
     return setSearchState(true);
-  }
+  };
+
+  useEffect(() => {
+    if (searchState) {
+      history.push(`/search/${valueState}`);
+    }
+  }, [history, searchState, valueState]);
 
   useEffect(() => {
     setSearchState(false);
-  }, [props]);
+  }, [setSearchState]);
 
   return (
-    <div>
-      <input
-        type="text"
-        value={valueState}
-        onChange={handleChange}
-        onKeyPress={({ key }) => (key === 'Enter' ? checkInpunt(valueState) : false)}
-      />
-      {searchState && <Redirect to={`/search/${valueState}`} />}
-    </div>
+    <input
+      type="text"
+      value={valueState}
+      onChange={handleChange}
+      onKeyPress={({ key }) => (key === 'Enter' ? checkInpunt(valueState) : false)}
+    />
   );
 }
