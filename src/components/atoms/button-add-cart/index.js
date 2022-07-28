@@ -14,7 +14,6 @@ export default function ButtonAddCart({ itemId }) {
 
   useEffect(() => {
     if (shoppingCartList.some((element) => element.itemId === itemId)) setInCart(true);
-    return inCart;
   }, [inCart, itemId, shoppingCartList]);
 
   const handleChange = () => {
