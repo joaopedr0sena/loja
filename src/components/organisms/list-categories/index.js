@@ -6,10 +6,6 @@ export default function ListCategories() {
   const [categories, setCategories] = useState([]);
   const [readCategotries, setEeadCategotries] = useState(false);
 
-  function handleChangeReadCategotries() {
-    setEeadCategotries(!readCategotries);
-  }
-
   useEffect(() => {
     const getApi = async () => {
       const newCategories = await getCategories();
@@ -22,7 +18,7 @@ export default function ListCategories() {
     <div>
       <button
         type="button"
-        onClick={handleChangeReadCategotries}
+        onClick={() => setEeadCategotries(!readCategotries)}
       >
         categorias
       </button>
