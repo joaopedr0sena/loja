@@ -2,30 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import changeAmount from '../../../redux/reducers/shoppingCart/actions/changeAmount';
 
-export default function Amount(props) {
-  const { itemId } = props;
+export default function Amount({ itemId, initialAmount }) {
   const [amount, setAmount] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    function amountSaved() {
-      setAmount(props.amount);
-    }
-    amountSaved();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    setAmount(initialAmount);
+  }, [initialAmount]);
 
-  function handleChangeAmountAdd() {
-    setAmount(amount + 1);
-    dispatch(changeAmount(itemId, amount + 1));
-  }
+  const handleChangeAmountAdd = () => {
+    const addToAmount = 1;
+    setAmount(amount + addToAmount);
+    dispatch(changeAmount(itemId, amount + addToAmount));
+  };
 
-  function handleChangeAmountLess() {
+  const handleChangeAmountLess = () => {
+    const decreaseInAmount = 1;
     if (amount > 1) {
-      dispatch(changeAmount(itemId, amount - 1));
-      setAmount(amount - 1);
+      dispatch(changeAmount(itemId, amount - decreaseInAmount));
+      setAmount(amount - decreaseInAmount);
     }
-  }
+  };
 
   return (
     <div>

@@ -41,7 +41,7 @@ export default function ShoppingCart() {
                   <h1>{title}</h1>
                   <p>{`R$ ${price}`}</p>
                 </Link>
-                <Amount amount={amount} itemId={itemId} />
+                <Amount initialAmount={amount} itemId={itemId} />
                 <ButtonAddCart itemId={itemId} />
               </li>
             );
