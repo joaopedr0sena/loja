@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../components/atoms/search-bar';
 import Categories from './Categories';
 import GenerateProductList from '../../helpers/generateProductList';
 

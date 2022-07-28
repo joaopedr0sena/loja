@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../components/atoms/search-bar';
 import getDescription from '../../utils/apis/getDescription';
 import GenerateProductList from '../../helpers/generateProductList';
 import getSpecificCategory from '../../utils/apis/getSpecificCategory';

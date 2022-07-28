@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getProducts from '../../utils/apis/getProducts';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../components/atoms/search-bar';
 import GenerateProductList from '../../helpers/generateProductList';
 
 export default function Search(props) {
