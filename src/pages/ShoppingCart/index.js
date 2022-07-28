@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Amount from '../../components/Amount';
 import SearchBar from '../../components/SearchBar';
-import AddToCart from '../../components/AddToCart';
+import ButtonAddCart from '../../components/atoms/button-add-cart';
 import shoppingCartThunk from '../../redux/thunk/shoppingCart';
 
 export default function ShoppingCart() {
@@ -42,7 +42,7 @@ export default function ShoppingCart() {
                   <p>{`R$ ${price}`}</p>
                 </Link>
                 <Amount amount={amount} itemId={itemId} />
-                <AddToCart itemId={itemId} />
+                <ButtonAddCart itemId={itemId} />
               </li>
             );
           })

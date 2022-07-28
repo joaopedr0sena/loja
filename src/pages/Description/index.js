@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import SearchBar from '../../components/SearchBar';
-import AddToCart from '../../components/AddToCart';
 import getDescription from '../../utils/apis/getDescription';
 import GenerateProductList from '../../helpers/generateProductList';
 import getSpecificCategory from '../../utils/apis/getSpecificCategory';
+import ButtonAddCart from '../../components/atoms/button-add-cart';
 
 const INITIAL_STATE = {
   loading: true,
@@ -62,7 +62,7 @@ export default function Description(props) {
         />
       ))}
       <p>{`R$ ${information.price}`}</p>
-      <AddToCart itemId={information.id} />
+      <ButtonAddCart itemId={information.id} />
       <div className="description">
         <p>{plainText}</p>
       </div>

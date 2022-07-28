@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import getProducts from '../utils/apis/getProducts';
-import AddToCart from '../components/AddToCart';
+import ButtonAddCart from '../components/atoms/button-add-cart';
 
 export default function GenerateProductList(props) {
   const [loading, setLoading] = useState(true);
@@ -46,7 +46,7 @@ export default function GenerateProductList(props) {
               <h3>{title}</h3>
               <p>{`R$ ${price}`}</p>
             </Link>
-            <AddToCart itemId={id} />
+            <ButtonAddCart itemId={id} />
           </li>
         ))}
       </ul>
