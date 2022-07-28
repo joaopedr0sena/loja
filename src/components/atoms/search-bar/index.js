@@ -11,7 +11,7 @@ export default function SearchBar() {
   };
 
   const checkInpunt = (value) => {
-    if (value === '') return setSearchState(false);
+    if (!value) return setSearchState(false);
     return setSearchState(true);
   };
 
