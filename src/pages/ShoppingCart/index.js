@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Amount from '../../components/atoms/amount';
+import Amount from '../../components/molecules/amount';
 import SearchBar from '../../components/atoms/search-bar';
 import ButtonAddCart from '../../components/atoms/button-add-cart';
 import shoppingCartThunk from '../../redux/thunk/shoppingCart';
