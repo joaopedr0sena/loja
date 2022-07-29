@@ -37,6 +37,7 @@ export default function ProductsList({ category, noId, list }) {
       }) => (
         <ItemProductsList
           id={id}
+          key={id}
           title={title}
           price={price}
           thumbnail={thumbnail}
