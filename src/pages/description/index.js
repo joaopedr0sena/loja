@@ -4,6 +4,7 @@ import ProductsList from '../../components/organisms/products-list';
 import getSpecificCategory from '../../utils/apis/getSpecificCategory';
 import ButtonAddCart from '../../components/atoms/button-add-cart';
 import Header from '../../components/organisms/header';
+import ImagesList from '../../components/molecules/images-list';
 
 export default function Description({ match: { params: { id } } }) {
   const [loading, setLoading] = useState(true);
@@ -35,17 +36,7 @@ export default function Description({ match: { params: { id } } }) {
   return (
     <div>
       <Header title={information.title} />
-      {information.pictures.map(({
-        secure_url: secureUrl,
-        id: pictureId,
-      }) => (
-        <img
-          src={secureUrl}
-          alt={`${information.title}`}
-          key={`${pictureId}`}
-          width="100px"
-        />
-      ))}
+      <ImagesList images={information.pictures} title={information.title} />
       <p>{`R$ ${information.price}`}</p>
       <ButtonAddCart itemId={information.id} />
       <div className="description">
