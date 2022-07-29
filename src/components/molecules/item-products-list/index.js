@@ -10,7 +10,7 @@ export default function ItemProductsList({
   thumbnail,
 }) {
   return (
-    <li key={id}>
+    <li>
       <Link to={`/description/product/${id}`}>
         <img src={thumbnail} width="100px" alt={title} />
         <h3>{title}</h3>
