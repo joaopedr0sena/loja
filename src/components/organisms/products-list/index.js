@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import getProducts from '../utils/apis/getProducts';
-import ButtonAddCart from '../components/atoms/button-add-cart';
+import getProducts from '../../../utils/apis/getProducts';
+import ButtonAddCart from '../../atoms/button-add-cart';
 
-export default function GenerateProductList(props) {
+export default function ProductsList(props) {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const { category, noId, list } = props;
