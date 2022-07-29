@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getDescription from '../../utils/apis/getDescription';
-import GenerateProductList from '../../helpers/generateProductList';
+import ProductsList from '../../components/organisms/products-list';
 import getSpecificCategory from '../../utils/apis/getSpecificCategory';
 import ButtonAddCart from '../../components/atoms/button-add-cart';
 import Header from '../../components/organisms/header';
@@ -65,7 +65,7 @@ export default function Description(props) {
       <div className="description">
         <p>{plainText}</p>
       </div>
-      <GenerateProductList category={category} noId={information.id} />
+      <ProductsList category={category} noId={information.id} />
     </div>
   );
 }

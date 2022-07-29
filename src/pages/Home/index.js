@@ -1,5 +1,5 @@
 import React from 'react';
-import GenerateProductList from '../../helpers/generateProductList';
+import ProductsList from '../../components/organisms/products-list';
 import Header from '../../components/organisms/header';
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <GenerateProductList />
+        <ProductsList />
       </main>
     </>
   );

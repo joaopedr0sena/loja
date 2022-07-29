@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import getProducts from '../../utils/apis/getProducts';
 import Header from '../../components/organisms/header';
-import GenerateProductList from '../../helpers/generateProductList';
+import ProductsList from '../../components/organisms/products-list';
 
 export default function Search(props) {
   const [products, setProducts] = useState([]);
@@ -18,7 +18,7 @@ export default function Search(props) {
   return (
     <div>
       <Header />
-      {products && <GenerateProductList list={products} />}
+      {products && <ProductsList list={products} />}
     </div>
   );
 }
