@@ -5,47 +5,33 @@ import getSpecificCategory from '../../utils/apis/getSpecificCategory';
 import ButtonAddCart from '../../components/atoms/button-add-cart';
 import Header from '../../components/organisms/header';
 
-const INITIAL_STATE = {
-  loading: true,
-  category: '',
-  description: {},
-  information: {},
-};
-
-export default function Description(props) {
-  const { match } = props;
-  const [state, setState] = useState(INITIAL_STATE);
-
-  async function getInfos(id) {
-    setState({ ...INITIAL_STATE });
-    const { description, information } = await getDescription(id);
-    const { category_id: categoryId } = information;
-    const category = getSpecificCategory(categoryId);
-    if (category && description && information) {
-      setState({
-        category,
-        description,
-        information,
-        loading: false,
-      });
-    }
-  }
+export default function Description({ match: { params: { id } } }) {
+  const [loading, setLoading] = useState(true);
+  const [category, setCategory] = useState('');
+  const [information, setInformation] = useState({});
+  const [description, setDescription] = useState({});
 
   useEffect(() => {
-    getInfos(match.params.id);
-  }, [match.params.id]);
+    const getInfos = async () => {
+      const {
+        description: newDescription,
+        information: newInformation,
+      } = await getDescription(id);
 
-  if (state.loading) {
-    return (
-      <p>...</p>
-    );
-  }
-  const {
-    category,
-    description,
-    information,
-  } = state;
-  const { plain_text: plainText } = description;
+      const specificCategory = getSpecificCategory(newInformation.category_id);
+
+      if (specificCategory && newDescription && newInformation) {
+        setCategory(specificCategory);
+        setInformation(newInformation);
+        setDescription(newDescription);
+        setLoading(false);
+      }
+    };
+
+    getInfos();
+  }, [category, description, id, information]);
+
+  if (loading) return (<p>...</p>);
   return (
     <div>
       <Header title={information.title} />
@@ -63,7 +49,7 @@ export default function Description(props) {
       <p>{`R$ ${information.price}`}</p>
       <ButtonAddCart itemId={information.id} />
       <div className="description">
-        <p>{plainText}</p>
+        <p>{description.plain_text}</p>
       </div>
       <ProductsList category={category} noId={information.id} />
     </div>
