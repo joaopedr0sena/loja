@@ -6,6 +6,7 @@ import Amount from '../../components/molecules/amount';
 import Header from '../../components/organisms/header';
 import ButtonAddCart from '../../components/atoms/button-add-cart';
 import shoppingCartThunk from '../../redux/thunk/shoppingCart';
+import CustomImage from '../../components/atoms/image';
 
 export default function ShoppingCart() {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export default function ShoppingCart() {
             return (
               <li key={itemId}>
                 <Link to={`/description/product/${itemId}`}>
-                  <img src={thumbnail} alt={title} width="100px" />
+                  <CustomImage url={thumbnail} alt={title} width="100px" />
                   <h1>{title}</h1>
                   <p>{`R$ ${price}`}</p>
                 </Link>

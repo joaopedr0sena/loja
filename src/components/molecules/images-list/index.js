@@ -1,5 +1,5 @@
 import React from 'react';
-import ImagesListItem from '../../atoms/image-list-item';
+import CustomImage from '../../atoms/image';
 
 export default function ImagesList({ images, title }) {
   return (
@@ -8,7 +8,7 @@ export default function ImagesList({ images, title }) {
         secure_url: secureUrl,
         id: pictureId,
       }) => (
-        <ImagesListItem
+        <CustomImage
           url={secureUrl}
           title={title}
           key={pictureId}

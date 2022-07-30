@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ButtonAddCart from '../../atoms/button-add-cart';
+import CustomImage from '../../atoms/image';
 
 export default function ItemProductsList({
   id,
@@ -12,7 +13,7 @@ export default function ItemProductsList({
   return (
     <li>
       <Link to={`/description/product/${id}`}>
-        <img src={thumbnail} width="100px" alt={title} />
+        <CustomImage url={thumbnail} width="100px" alt={title} />
         <h3>{title}</h3>
         <p>{`R$ ${price}`}</p>
       </Link>

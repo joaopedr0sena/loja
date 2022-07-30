@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ImagesListItem({ url, title }) {
+export default function CustomImage({ url, title }) {
   return (
     <img
       src={url}
