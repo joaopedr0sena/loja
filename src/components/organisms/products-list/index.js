@@ -28,7 +28,7 @@ export default function ProductsList({ category, noId, list }) {
     );
   }
   return (
-    <ul>
+    <ul className="w-full">
       {products.map(({
         thumbnail,
         title,
