@@ -1,7 +1,8 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Thumbnail from '../../atoms/thumbnails';
 import ButtonAddCart from '../../atoms/button-add-cart';
+import ListItemTitle from '../../atoms/list-item-title';
 
 export default function ItemProductsList({
   id,
@@ -10,10 +11,10 @@ export default function ItemProductsList({
   thumbnail,
 }) {
   return (
-    <li key={id}>
+    <li key={id} className="flex justify-between">
       <Link to={`/description/product/${id}`}>
-        <img src={thumbnail} width="100px" alt={title} />
-        <h3>{title}</h3>
+        <Thumbnail img={thumbnail} title={title} />
+        <ListItemTitle>{title}</ListItemTitle>
         <p>{`R$ ${price}`}</p>
       </Link>
       <ButtonAddCart itemId={id} />
