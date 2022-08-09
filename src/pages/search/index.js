@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import getProducts from '../../utils/apis/getProducts';
 import Header from '../../components/organisms/header';
 import ProductsList from '../../components/organisms/products-list';
+import ListsTemplate from '../../components/templates/lists';
 
 export default function Search(props) {
   const [products, setProducts] = useState([]);
@@ -16,9 +17,9 @@ export default function Search(props) {
   }, [match]);
 
   return (
-    <div>
-      <Header />
-      {products && <ProductsList list={products} />}
-    </div>
+    <ListsTemplate
+      header={<Header />}
+      list={products && <ProductsList list={products} />}
+    />
   );
 }
