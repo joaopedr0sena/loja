@@ -27,7 +27,11 @@ export default function ButtonAddCart({ itemId }) {
   };
 
   return (
-    <button type="button" onClick={handleChange}>
+    <button
+      className="p-1 bg-quaternary rounded-xl text-xs w-32"
+      type="button"
+      onClick={handleChange}
+    >
       {inCart ? 'remover do carrinho' : 'adicionar ao carrinho'}
     </button>
   );
