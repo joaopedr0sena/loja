@@ -31,6 +31,7 @@ export default function SearchBar() {
       value={valueState}
       onChange={handleChange}
       onKeyPress={({ key }) => (key === 'Enter' ? checkInpunt(valueState) : false)}
+      className="rounded-xl text-xs h-10 w-full"
     />
   );
 }
