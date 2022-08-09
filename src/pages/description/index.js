@@ -4,6 +4,7 @@ import ProductsList from '../../components/organisms/products-list';
 import getSpecificCategory from '../../utils/apis/getSpecificCategory';
 import ButtonAddCart from '../../components/atoms/button-add-cart';
 import Header from '../../components/organisms/header';
+import Subtitle from '../../components/atoms/subtitle';
 
 export default function Description({ match: { params: { id } } }) {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,8 @@ export default function Description({ match: { params: { id } } }) {
   if (loading) return (<p>...</p>);
   return (
     <div>
-      <Header title={information.title} />
+      <Header title="Descrição" />
+      <Subtitle>{information.title}</Subtitle>
       {information.pictures.map(({
         secure_url: secureUrl,
         id: pictureId,
