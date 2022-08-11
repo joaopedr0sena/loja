@@ -6,7 +6,7 @@ import ListCategories from '../../molecules/list-categories';
 
 export default function Header({ title = 'Loja' }) {
   return (
-    <header className="bg-primary w-full flex flex-col justify-between">
+    <header className="bg-primary shadow-lg sticky top-0 left-0 w-full flex flex-col justify-between">
       <div className="flex items-center">
         <div>
           <Title>{title}</Title>
@@ -15,16 +15,20 @@ export default function Header({ title = 'Loja' }) {
           <SearchBar />
         </div>
       </div>
-      <nav className="my-2">
-        <ul className="flex flex-row justify-between">
-          <li>
-            <Link to="/shoppingCart">
+      <nav className="mt-2 h-6">
+        <ul className="grid grid-cols-4 divide-x h-full">
+          <Link to="/shoppingCart">
+            <li className="h-full text-center">
               carrinho
-            </Link>
-          </li>
-          <li>produtos</li>
-          <li><ListCategories /></li>
-          <li>sobre</li>
+            </li>
+          </Link>
+          <Link to="/">
+            <li className="h-full text-center">
+              produtos
+            </li>
+          </Link>
+          <li className="h-full flex justify-center"><ListCategories /></li>
+          <li className="h-full text-center">sobre</li>
         </ul>
       </nav>
     </header>
