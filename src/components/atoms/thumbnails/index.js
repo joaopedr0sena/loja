@@ -4,7 +4,7 @@ export default function Thumbnail({ img, title }) {
   return (
     <img
       alt={title}
-      className="h-1/2 w-full rounded-xl"
+      className="w-full h-full rounded-xl"
       src={img}
     />
   );
