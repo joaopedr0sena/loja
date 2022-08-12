@@ -8,9 +8,10 @@ export default function ProductsList({ category, noId, list }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     const getProductsList = async () => {
-      let newProductsList = await getProducts(category);
-      if (noId) newProductsList = newProductsList.filter(({ id }) => id !== noId);
+      const newProductsList = await getProducts(category);
+      if (noId) newProductsList.slice(newProductsList.indexOf(noId));
       setProducts(newProductsList);
       setLoading(false);
     };
@@ -20,7 +21,8 @@ export default function ProductsList({ category, noId, list }) {
     } else {
       getProductsList();
     }
-  }, [list, category, noId]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category, list]);
 
   if (loading) {
     return (
