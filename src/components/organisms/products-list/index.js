@@ -1,17 +1,21 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import getProducts from '../../../utils/apis/getProducts';
-import ItemProductsList from '../../molecules/item-products-list';
+import { ItemProductsList, ItemProductsListSmaller } from '../../molecules/item-products-list';
 
-export default function ProductsList({ category, noId, list }) {
+export default function ProductsList({
+  category,
+  noId,
+  list,
+  type,
+}) {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setLoading(true);
     const getProductsList = async () => {
-      const newProductsList = await getProducts(category);
-      if (noId) newProductsList.slice(newProductsList.indexOf(noId));
+      let newProductsList = await getProducts(category);
+      if (noId) newProductsList = newProductsList.filter(({ id }) => id !== noId);
       setProducts(newProductsList);
       setLoading(false);
     };
@@ -21,12 +25,31 @@ export default function ProductsList({ category, noId, list }) {
     } else {
       getProductsList();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category, list]);
+  }, [category, list, noId]);
 
   if (loading) {
     return (
       <p>...</p>
+    );
+  }
+  if (type === 'recommended') {
+    return (
+      <ul className="flex overflow-x-auto mt-4">
+        {products.map(({
+          thumbnail,
+          title,
+          price,
+          id,
+        }) => (
+          <ItemProductsListSmaller
+            id={id}
+            key={id}
+            title={title}
+            price={price}
+            thumbnail={thumbnail}
+          />
+        ))}
+      </ul>
     );
   }
   return (
