@@ -38,15 +38,6 @@ export default function Description({ match: { params: { id } } }) {
 
   if (loading) return (<LoadingContainer />);
   return (
-<<<<<<< HEAD
-    <div>
-      <Header title={information.title} />
-      <ImagesList images={information.pictures} title={information.title} />
-      <p>{`R$ ${information.price}`}</p>
-      <ButtonAddCart itemId={information.id} />
-      <div className="description">
-        <p>{description.plain_text}</p>
-=======
     <div className="bg-quinary pb-10">
       <Header title="Descrição" />
       <div className="flex flex-col mx-auto mt-5 py-2 px-2 max-w-4xl bg-white rounded-md">
@@ -68,7 +59,6 @@ export default function Description({ match: { params: { id } } }) {
       </div>
       <div className="w-11/12 mx-auto">
         {category && <ProductsList category={category} noId={information.id} type="recommended" />}
->>>>>>> feature/styles
       </div>
     </div>
   );

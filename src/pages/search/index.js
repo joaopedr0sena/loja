@@ -8,20 +8,22 @@ import LoadingContainer from '../../components/atoms/loading';
 export default function Search({ match: { params: { searchItem } } }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { match: { params: { searchItem } } } = props;
 
   useEffect(() => {
+    setLoading(true);
     async function getItems(nameItems) {
       const items = await getProducts('', nameItems);
       setProducts(items);
+      setLoading(false);
     }
-    getItems(match.params.searchItem);
-  }, [match]);
+    getItems(searchItem);
+  }, [searchItem]);
+  if (loading) return (<LoadingContainer />);
 
   return (
-    <div>
-      <Header />
-      {products && <ProductsList list={products} />}
-    </div>
+    <ListsTemplate
+      header={<Header />}
+      list={products && <ProductsList list={products} />}
+    />
   );
 }

@@ -12,13 +12,6 @@ export function ItemProductsList({
   thumbnail,
 }) {
   return (
-<<<<<<< HEAD
-    <li>
-      <Link to={`/description/product/${id}`}>
-        <CustomImage url={thumbnail} width="100px" alt={title} />
-        <h3>{title}</h3>
-        <p>{`R$ ${price}`}</p>
-=======
     <li key={id} className="bg-white shadow-mdflex flex-col justify-between my-2 w-56 h-96">
       <Link to={`/description/product/${id}`} className="w-full h-4/5 divide-y divide-quinary ml-px">
         <div className="w-48 mx-auto mb-6 h-max">
@@ -49,7 +42,6 @@ export function ItemProductsListSmaller({
         </div>
         <ListItemTitle maxCharacters={48}>{title}</ListItemTitle>
         <Price>{price}</Price>
->>>>>>> feature/styles
       </Link>
       <ButtonAddCart itemId={id} />
     </li>
