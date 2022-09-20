@@ -25,10 +25,10 @@ export default function Amount({ itemId, initialAmount }) {
   };
 
   return (
-    <div>
-      <button type="button" onClick={handleChangeAmountLess}>-</button>
-      <p>{amount}</p>
-      <button type="button" onClick={handleChangeAmountAdd}>+</button>
+    <div className="h-10 w-20 flex text-2xl flex-row items-center justify-between justify-center border-quinary border-2">
+      <button type="button" className="w-full" onClick={handleChangeAmountLess}>-</button>
+      <p className="w-full text-center">{amount}</p>
+      <button type="button" className="w-full" onClick={handleChangeAmountAdd}>+</button>
     </div>
   );
 }

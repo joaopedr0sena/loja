@@ -1,21 +1,55 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Thumbnail from '../../atoms/thumbnails';
 import ButtonAddCart from '../../atoms/button-add-cart';
-import CustomImage from '../../atoms/image';
+import ListItemTitle from '../../atoms/list-item-title';
+import Price from '../../atoms/price';
 
-export default function ItemProductsList({
+export function ItemProductsList({
   id,
   price,
   title,
   thumbnail,
 }) {
   return (
+<<<<<<< HEAD
     <li>
       <Link to={`/description/product/${id}`}>
         <CustomImage url={thumbnail} width="100px" alt={title} />
         <h3>{title}</h3>
         <p>{`R$ ${price}`}</p>
+=======
+    <li key={id} className="bg-white shadow-mdflex flex-col justify-between my-2 w-56 h-96">
+      <Link to={`/description/product/${id}`} className="w-full h-4/5 divide-y divide-quinary ml-px">
+        <div className="w-48 mx-auto mb-6 h-max">
+          <Thumbnail img={thumbnail} title={title} />
+        </div>
+        <div className="h-max mt-2">
+          <div className="mb-5">
+            <Price>{price}</Price>
+          </div>
+          <ListItemTitle>{title}</ListItemTitle>
+        </div>
+      </Link>
+    </li>
+  );
+}
+
+export function ItemProductsListSmaller({
+  id,
+  price,
+  title,
+  thumbnail,
+}) {
+  return (
+    <li key={id} className="bg-white shadow-md flex flex-col justify-between my-2 rounded-xl w-36 h-60 mx-2">
+      <Link to={`/description/product/${id}`} className="w-full h-4/5 flex flex-col justify-between ml-px">
+        <div className="w-24 mx-auto">
+          <Thumbnail img={thumbnail} title={title} />
+        </div>
+        <ListItemTitle maxCharacters={48}>{title}</ListItemTitle>
+        <Price>{price}</Price>
+>>>>>>> feature/styles
       </Link>
       <ButtonAddCart itemId={id} />
     </li>
