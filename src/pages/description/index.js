@@ -39,19 +39,23 @@ export default function Description({ match: { params: { id } } }) {
   return (
     <div className="bg-quinary pb-10">
       <Header title="Descrição" />
-      <section className="flex flex-row mx-auto mt-5 py-5 px-10 max-w-6xl bg-white rounded-md">
-        <div className="w-1/2">
+      <div className="flex flex-col mx-auto mt-5 py-2 px-2 max-w-4xl bg-white rounded-md">
+        <div className="w-full items-center">
           <Gallery images={information.pictures} />
           <Price>{information.price}</Price>
           <ButtonAddCart itemId={information.id} />
         </div>
-        <div className="w-1/2">
+        <div className="w-ful">
           <Subtitle>{information.title}</Subtitle>
           <div className="mt-8">
-            <p>{description.plain_text}</p>
+            {
+              description.plain_text.split(/\n/gm).map((a) => (
+                <p>{a}</p>
+              ))
+            }
           </div>
         </div>
-      </section>
+      </div>
       <div className="w-11/12 mx-auto">
         {category && <ProductsList category={category} noId={information.id} type="recommended" />}
       </div>

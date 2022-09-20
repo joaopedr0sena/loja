@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../../atoms/search-bar';
 import Title from '../../atoms/title';
-import ListCategories from '../../molecules/list-categories';
+import ListCategories from '../../atoms/list-categories';
 
 export default function Header({ title = 'Loja' }) {
   return (

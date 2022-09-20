@@ -15,7 +15,7 @@ export default function ListCategories() {
 
   return (
     <details className="relative cursor-pointer w-max">
-      <summary>
+      <summary className="list-none">
         categorias
       </summary>
       <ul className="absolute left-0 w-min bg-white h-96 overflow-x-hidden overflow-y-auto shadow-xl rounded-lg">
