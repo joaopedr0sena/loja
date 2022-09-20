@@ -7,6 +7,7 @@ import Header from '../../components/organisms/header';
 import Subtitle from '../../components/atoms/subtitle';
 import Price from '../../components/atoms/price';
 import Gallery from '../../components/molecules/gallery';
+import LoadingContainer from '../../components/atoms/loading';
 
 export default function Description({ match: { params: { id } } }) {
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,7 @@ export default function Description({ match: { params: { id } } }) {
     getInfos();
   }, [id]);
 
-  if (loading) return (<p>...</p>);
+  if (loading) return (<LoadingContainer />);
   return (
     <div className="bg-quinary pb-10">
       <Header title="Descrição" />

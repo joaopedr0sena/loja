@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getProducts from '../../../utils/apis/getProducts';
+import LoadingContainer from '../../atoms/loading';
 import { ItemProductsList, ItemProductsListSmaller } from '../../molecules/item-products-list';
 
 export default function ProductsList({
@@ -27,11 +28,8 @@ export default function ProductsList({
     }
   }, [category, list, noId]);
 
-  if (loading) {
-    return (
-      <p>...</p>
-    );
-  }
+  if (loading) return (<LoadingContainer />);
+
   if (type === 'recommended') {
     return (
       <ul className="flex overflow-x-auto mt-4">

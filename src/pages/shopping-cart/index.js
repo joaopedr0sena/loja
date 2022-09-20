@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/organisms/header';
 import shoppingCartThunk from '../../redux/thunk/shoppingCart';
 import ShoppingCartList from '../../components/organisms/shopping-cart-list';
+import LoadingContainer from '../../components/atoms/loading';
 
 export default function ShoppingCart() {
   const dispatch = useDispatch();
@@ -24,11 +25,7 @@ export default function ShoppingCart() {
     data();
   }, []);
 
-  if (!cartList) {
-    return (
-      <p>...</p>
-    );
-  }
+  if (!cartList) return (<LoadingContainer />);
   return (
     <>
       <Header title="Carrinho de compras" />

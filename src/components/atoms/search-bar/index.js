@@ -18,19 +18,16 @@ export default function SearchBar() {
   useEffect(() => {
     if (searchState) {
       history.push(`/search/${valueState}`);
+      setSearchState(false);
     }
   }, [history, searchState, valueState]);
-
-  useEffect(() => {
-    setSearchState(false);
-  }, [setSearchState]);
 
   return (
     <input
       type="text"
       value={valueState}
       onChange={handleChange}
-      onKeyPress={({ key }) => (key === 'Enter' ? checkInpunt(valueState) : false)}
+      onKeyPress={({ charCode }) => (charCode === 13 ? checkInpunt(valueState) : false)}
       className="rounded-xl text-xs h-8 w-full text-xl pl-2"
     />
   );
