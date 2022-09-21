@@ -13,15 +13,15 @@ export default function ShoppingCartItem({
   thumbnail,
 }) {
   return (
-    <li className="border-quinary border-b-2 ">
+    <li className="border-quinary border-b-2 h-max">
       <div className="flex flex-row items-center justify-between">
         <Link to={`/description/product/${id}`} className="flex w-full items-center">
           <img src={thumbnail} alt={title} width="100px" />
           <ListItemTitle>{title}</ListItemTitle>
         </Link>
-        <Amount initialAmount={amount} itemId={id} />
-        <div className="ml-4">
+        <div className="ml-4 flex flex-col items-center justify-between">
           <Price>{price}</Price>
+          <Amount initialAmount={amount} itemId={id} />
           <ButtonAddCart itemId={id} />
         </div>
       </div>

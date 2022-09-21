@@ -29,7 +29,7 @@ export default function ShoppingCart() {
   return (
     <>
       <Header title="Carrinho de compras" />
-      <div className="w-9/12 h-9/12 mt-6 mx-auto bg-white rounded mb-10">
+      <div className="max-w-4xl w-full h-9/12 mt-6 mx-auto bg-white rounded mb-10">
         <ShoppingCartList list={listInformations} />
       </div>
     </>

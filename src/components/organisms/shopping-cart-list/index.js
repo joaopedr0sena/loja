@@ -3,7 +3,7 @@ import ShoppingCartItem from '../../molecules/shopping-cart-item';
 
 export default function ShoppingCartList({ list }) {
   return (
-    <ul className="w-full h-full p-14">
+    <ul className="w-full h-full p-5">
       <div>
         {
           list.map(({ itemId, amount, infos }) => {

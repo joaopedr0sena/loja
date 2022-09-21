@@ -22,12 +22,14 @@ export default function Gallery({ images }) {
               onClick={() => setShowImage(secureUrl)}
               role="presentation"
             >
-              <img
-                className="w-20 h-20"
-                alt="product_image"
-                src={secureUrl}
-                key={`${pictureId}`}
-              />
+              <div className="w-20 h-20">
+                <img
+                  className="h-full mx-auto"
+                  alt="product_image"
+                  src={secureUrl}
+                  key={`${pictureId}`}
+                />
+              </div>
             </li>
           ))}
         </ul>
