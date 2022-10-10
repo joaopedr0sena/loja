@@ -48,10 +48,10 @@ export default function Description({ match: { params: { id } } }) {
         </div>
         <div className="w-ful">
           <Subtitle>{information.title}</Subtitle>
-          <div className="mt-8">
+          <div className="mt-8 break-words">
             {
               description.plain_text.split(/\n/gm).map((a) => (
-                <p>{a}</p>
+                <p className="my-3">{a}</p>
               ))
             }
           </div>
