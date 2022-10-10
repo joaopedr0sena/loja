@@ -17,7 +17,7 @@ export default function ShoppingCartItem({
       <div className="flex flex-row items-center justify-between">
         <Link to={`/description/product/${id}`} className="flex w-full items-center">
           <img src={thumbnail} alt={title} width="100px" />
-          <ListItemTitle>{title}</ListItemTitle>
+          <ListItemTitle maxCharacters={45}>{title}</ListItemTitle>
         </Link>
         <div className="ml-4 flex flex-col items-center justify-between">
           <Price>{price}</Price>
