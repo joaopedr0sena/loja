@@ -3,7 +3,6 @@ import getProducts from '../../utils/apis/getProducts';
 import Header from '../../components/organisms/header';
 import ProductsList from '../../components/organisms/products-list';
 import ListsTemplate from '../../components/templates/lists';
-import LoadingContainer from '../../components/atoms/loading';
 
 export default function Search({ match: { params: { searchItem } } }) {
   const [products, setProducts] = useState([]);
@@ -18,10 +17,10 @@ export default function Search({ match: { params: { searchItem } } }) {
     }
     getItems(searchItem);
   }, [searchItem]);
-  if (loading) return (<LoadingContainer />);
 
   return (
     <ListsTemplate
+      loading={loading}
       header={<Header />}
       list={products && <ProductsList list={products} />}
     />
