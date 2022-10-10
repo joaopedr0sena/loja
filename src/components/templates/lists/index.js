@@ -1,12 +1,14 @@
 import React from 'react';
+import LoadingContainer from '../../atoms/loading';
+import Header from '../../organisms/header';
 
-export default function ListsTemplate({ header, subtitle, list }) {
+export default function ListsTemplate({ subtitle, list, loading }) {
   return (
     <div className="bg-quinary">
-      {header}
+      <Header />
       {subtitle && subtitle}
       <div className="flex justify-center">
-        {list}
+        {!loading ? list : <LoadingContainer />}
       </div>
     </div>
   );
