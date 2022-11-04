@@ -50,6 +50,7 @@ export default function ProductsList({
       </ul>
     );
   }
+
   return (
     <ul className="flex justify-around flex-wrap w-2/4 max-w-3xl w-screen">
       {products.map(({
