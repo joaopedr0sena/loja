@@ -28,7 +28,7 @@ export default function ButtonAddCart({ itemId }) {
 
   return (
     <button
-      className={`p-1 ${inCart ? 'bg-tertiary' : 'bg-quaternary'} rounded-xl text-xs w-32 h-9`}
+      className={`p-1 ${inCart ? 'bg-tertiary' : 'bg-quaternary'} rounded-xl text-xs w-full h-9`}
       type="button"
       onClick={handleChange}
     >
