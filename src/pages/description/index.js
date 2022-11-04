@@ -41,13 +41,15 @@ export default function Description({ match: { params: { id } } }) {
     <div className="bg-quinary pb-10">
       <Header title="Descrição" />
       <div className="flex flex-col mx-auto mt-5 py-2 px-2 max-w-4xl bg-white rounded-md">
-        <div className="w-full items-center">
+        <div className="w-full items-center border-b-2 border-gray">
           <Gallery images={information.pictures} />
           <Price>{information.price}</Price>
-          <ButtonAddCart itemId={information.id} />
+          <div className="w-32">
+            <ButtonAddCart itemId={information.id} />
+          </div>
+          <Subtitle>{information.title}</Subtitle>
         </div>
         <div className="w-ful">
-          <Subtitle>{information.title}</Subtitle>
           <div className="mt-8 break-words">
             {
               description.plain_text.split(/\n/gm).map((a) => (
