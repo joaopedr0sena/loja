@@ -9,6 +9,7 @@ module.exports = {
       quaternary: '#06D6A0',
       quinary: '#e7e3e2',
       white: '#ffffff',
+      gray: '#dce0dc',
     },
     extend: {},
   },
