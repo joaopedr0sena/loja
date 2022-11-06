@@ -14,7 +14,7 @@ export function ItemProductsList({
   return (
     <li key={id} className="bg-white shadow-mdflex flex-col justify-between my-2 w-56 h-96">
       <Link to={`/description/product/${id}`} className="w-full h-4/5 divide-y divide-quinary ml-px">
-        <div className="w-48 mx-auto mb-6 h-max">
+        <div className="w-52 mx-auto mb-6 h-48">
           <Thumbnail img={thumbnail} title={title} />
         </div>
         <div className="h-max mt-2">
@@ -40,9 +40,9 @@ export function ItemProductsListSmaller({
         <div className="w-24 mx-auto">
           <Thumbnail img={thumbnail} title={title} />
         </div>
-        <ListItemTitle maxCharacters={48}>{title}</ListItemTitle>
-        <Price>{price}</Price>
+        <ListItemTitle maxCharacters={30}>{title}</ListItemTitle>
       </Link>
+      <Price>{price}</Price>
       <ButtonAddCart itemId={id} />
     </li>
   );
