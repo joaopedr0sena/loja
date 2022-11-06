@@ -41,8 +41,8 @@ export function ItemProductsListSmaller({
           <Thumbnail img={thumbnail} title={title} />
         </div>
         <ListItemTitle maxCharacters={30}>{title}</ListItemTitle>
-        <Price>{price}</Price>
       </Link>
+      <Price>{price}</Price>
       <ButtonAddCart itemId={id} />
     </li>
   );
