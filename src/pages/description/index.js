@@ -52,8 +52,8 @@ export default function Description({ match: { params: { id } } }) {
         <div className="w-ful">
           <div className="mt-8 break-words">
             {
-              description.plain_text.split(/\n/gm).map((a) => (
-                <p className="my-3">{a}</p>
+              description.plain_text && description.plain_text.split(/\n/gm).map((phrase) => (
+                <p className="my-3">{phrase}</p>
               ))
             }
           </div>
