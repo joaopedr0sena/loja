@@ -1,6 +1,6 @@
-# :shopping: loja
+# :shopping: [Loja](https://loja-kohl.vercel.app/)
 
-:wave: Boas vindas ao projeto! O desenvolvimento desse projeto teve como objetivo criar uma iterface para o consumo da `API` do `mercado livre`. utilizando `ReactJS`. 
+:wave: Boas vindas ao projeto! O desenvolvimento desse projeto teve como objetivo criar uma iterface a partir dos dados disponibilizados pela `API` do [Mercado Livre](https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br). 
 
 <img src="https://user-images.githubusercontent.com/85967112/207920133-d8f77ac3-097d-4781-969a-0f6f898ce236.png" />
 
@@ -22,22 +22,33 @@ Em sua CLI (Linha de comando), utilize:
 - `yarn start` or `npm start`;
 
 ## :hammer_and_wrench: Principais ferramentas e serviços
-- React;
-- Redux;
-- Eslint;
-- Tailwind;
-- Router Dom;
-- Mercado livre API;
+- [React](https://pt-br.reactjs.org/);
+- [Redux](https://redux.js.org/);
+- [Eslint](https://eslint.org/);
+- [Tailwind](https://tailwindcss.com/);
+- [Router Dom](https://reactrouter.com/en/main);
+- [Mercado livre API](https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br);
 
 <div align="center">
-  <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
-  &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
-  &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" />
-  &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
-  &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="https://seekicon.com/free-icon-download/react-router_1.svg" />
+  <a href="https://pt-br.reactjs.org/">
+    <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
+    &nbsp;&nbsp;&nbsp;
+  </a>
+  <a href="https://redux.js.org/">
+    <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
+    &nbsp;&nbsp;&nbsp;
+  </a>
+  <a href="https://eslint.org/">
+    <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" />
+    &nbsp;&nbsp;&nbsp;
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img height="100" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
+    &nbsp;&nbsp;&nbsp;
+  </a>
+  <a href="https://reactrouter.com/en/main">
+    <img height="100" width="100" src="https://seekicon.com/free-icon-download/react-router_1.svg" />
+  </a>
 </div>
 
+## [Visite a Aplicação](https://loja-kohl.vercel.app/)
