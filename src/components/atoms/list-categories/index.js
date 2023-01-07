@@ -21,7 +21,7 @@ export default function ListCategories() {
       <ul className="absolute left-0 w-min bg-white h-96 overflow-x-hidden overflow-y-auto shadow-xl rounded-lg">
         {
           categories.map(({ id, name }) => (
-            <li key={id} className="hover:bg-quinary border-quinary py-2 border-b-2">
+            <li key={id} className="hover:bg-quinary text-secondary hover:underline border-quinary py-2 border-b-2">
               <Link className="my-3" to={`/category/${id}/categoryName/${name}`}>
                 <p>{name}</p>
               </Link>
