@@ -12,9 +12,9 @@ export function ItemProductsList({
   thumbnail,
 }) {
   return (
-    <li key={id} className="bg-white shadow-mdflex flex-col justify-between my-2 w-56 h-96">
+    <li key={id} className="bg-white shadow-mdflex shadow-xl flex-col justify-between my-2 w-56 h-96 rounded-md">
       <Link to={`/description/product/${id}`} className="w-full h-4/5 divide-y divide-quinary ml-px">
-        <div className="w-52 mx-auto mb-6 h-48">
+        <div className="w-32 mx-auto mb-6 h-32">
           <Thumbnail img={thumbnail} title={title} />
         </div>
         <div className="h-max mt-2">
