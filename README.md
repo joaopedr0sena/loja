@@ -2,7 +2,9 @@
 
 :wave: Boas vindas ao projeto! O desenvolvimento desse projeto teve como objetivo criar uma iterface a partir dos dados disponibilizados pela `API` do [Mercado Livre](https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br). 
 
-<img src="https://user-images.githubusercontent.com/85967112/207920133-d8f77ac3-097d-4781-969a-0f6f898ce236.png" />
+![tela](https://user-images.githubusercontent.com/85967112/207920133-d8f77ac3-097d-4781-969a-0f6f898ce236.png)
+
+>### [Visite a Aplicação](https://loja-kohl.vercel.app/)
 
 ## :computer: Pré-requisitos
 
@@ -50,5 +52,3 @@ Em sua CLI (Linha de comando), utilize:
     <img height="100" width="100" src="https://seekicon.com/free-icon-download/react-router_1.svg" />
   </a>
 </div>
-
-## [Visite a Aplicação](https://loja-kohl.vercel.app/)
