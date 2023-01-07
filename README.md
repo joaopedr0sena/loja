@@ -1,4 +1,4 @@
-# :shopping: [Loja](https://loja-kohl.vercel.app/)
+# :shopping: [Marketplace](https://loja-kohl.vercel.app/)
 
 :wave: Boas vindas ao projeto! O desenvolvimento desse projeto teve como objetivo criar uma iterface a partir dos dados disponibilizados pela `API` do [Mercado Livre](https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br). 
 
