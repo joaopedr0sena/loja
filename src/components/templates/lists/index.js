@@ -4,7 +4,7 @@ import Header from '../../organisms/header';
 
 export default function ListsTemplate({ subtitle, list, loading }) {
   return (
-    <div className="bg-quinary">
+    <div className="">
       <Header />
       {subtitle && subtitle}
       <div className="flex justify-center">
