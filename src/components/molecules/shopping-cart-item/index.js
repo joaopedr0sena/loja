@@ -13,7 +13,7 @@ export default function ShoppingCartItem({
   thumbnail,
 }) {
   return (
-    <li className="border-quinary border-b-2 h-max">
+    <li className="border-quinary border-b-2 h-max w-min-content">
       <div className="flex flex-row items-center justify-between">
         <Link to={`/description/product/${id}`} className="flex w-full items-center">
           <img src={thumbnail} alt={title} width="100px" />

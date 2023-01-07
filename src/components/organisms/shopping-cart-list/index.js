@@ -12,7 +12,7 @@ export default function ShoppingCartList({ list }) {
               <ShoppingCartItem
                 key={itemId}
                 id={itemId}
-                price={price}
+                price={price * amount}
                 title={title}
                 amount={amount}
                 thumbnail={thumbnail}
