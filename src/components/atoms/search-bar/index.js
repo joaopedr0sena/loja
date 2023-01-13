@@ -28,7 +28,7 @@ export default function SearchBar() {
       value={valueState}
       onChange={handleChange}
       onKeyPress={({ charCode }) => (charCode === 13 ? checkInpunt(valueState) : false)}
-      className="text-secondary rounded-xl text-xs h-8 w-full max-w-screen-lg text-xl pl-2"
+      className="text-secondary rounded text-xs h-8 w-full max-w-screen-lg text-xl pl-2"
     />
   );
 }
