@@ -36,7 +36,7 @@ export default function ShoppingCart() {
           <h2>
             <span className="text-xl mr-1">Total:</span>
             <Price>
-              {total && total.reduce((acc, cur) => acc + cur, 1)}
+              {total && total.reduce((acc, cur) => acc + cur, 0)}
             </Price>
           </h2>
         </div>
