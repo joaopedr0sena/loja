@@ -2,7 +2,7 @@
 
 :wave: Boas vindas ao projeto! O desenvolvimento desse projeto teve como objetivo criar uma iterface a partir dos dados disponibilizados pela `API` do [Mercado Livre](https://developers.mercadolivre.com.br/pt_br/api-docs-pt-br). 
 
-![tela](https://user-images.githubusercontent.com/85967112/207920133-d8f77ac3-097d-4781-969a-0f6f898ce236.png)
+![tela](https://user-images.githubusercontent.com/85967112/212220960-1a52ad3d-9552-4ac3-afba-c834aca04748.png)
 
 >### [Visite a Aplicação](https://loja-kohl.vercel.app/)
 
@@ -11,10 +11,10 @@
 - <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="nodejs" width="20" height="20"/> NodeJS
 - <img src="https://raw.githubusercontent.com/gurayyarar/NodeJsPackageManager/master/images/app.png" alt="package manager" width="20" height="20"/> Gerenciador de Pacotes para NodeJS (NPM ou Yarn)
 
-## :page_facing_up: Instalando Loja
+## :page_facing_up: Instalando Marketplace
 Para instalar o projeto, você precisará clonar o repositório para sua máquina local e instalar as dependências. Portanto, em sua linha de comando (CLI), utilize:
 ```bash
-$ git clone git@github.com:joaopedr0sena/loja.git
+$ git clone git@github.com:joaopedr0sena/marketplace.git
 $ yarn
 # ou npm install
 ```
