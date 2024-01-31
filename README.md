@@ -14,7 +14,7 @@
 ## :page_facing_up: Instalando Marketplace
 Para instalar o projeto, você precisará clonar o repositório para sua máquina local e instalar as dependências. Portanto, em sua linha de comando (CLI), utilize:
 ```bash
-$ git clone git@github.com:joaopedr0sena/marketplace.git
+$ git clone git@github.com:jp-sena-dev/marketplace.git
 $ yarn
 # ou npm install
 ```
